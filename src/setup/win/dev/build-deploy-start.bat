@@ -12,10 +12,10 @@ popd
 title Redeploying
 call msg info "[INFO] Redeploying" & echo.
 call msg info "[INFO] removing the old" & echo.
-rmdir /S /Q %TOMCAT_HOME%\webapps\cxatma >NUL 2>NUL
-del /F /Q %TOMCAT_HOME%\webapps\cxatma.war >NUL 2>NUL
+rmdir /S /Q %TOMCAT_HOME%\webapps\atma >NUL 2>NUL
+del /F /Q %TOMCAT_HOME%\webapps\atma.war >NUL 2>NUL
 call msg info "[INFO] deploying the new" & echo.
-copy /Y %PROJECT_HOME%\cxatma-build\cxatma-war\target\cxatma.war %TOMCAT_HOME%\webapps\cxatma.war
+copy /Y %PROJECT_HOME%\atma-build\atma-war\target\atma.war %TOMCAT_HOME%\webapps\atma.war
 call msg info "[INFO] done" & echo.
 
 title Tomcat
