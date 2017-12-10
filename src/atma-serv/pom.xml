@@ -34,12 +34,6 @@
             <groupId>com.lee.ez</groupId>
             <artifactId>jwaf-dispatcher</artifactId>
             <version>${framework.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.lee.ez</groupId>
-                    <artifactId>jwaf-token-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- servlet -->
@@ -81,6 +75,22 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--
+            EzManager API
+        -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.founder.</groupId>
+            <artifactId>EzManagerAPI</artifactId>
+            <version>V6.0.5.201609091100</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/ext/lib/EzManagerAPI_V6.0.5.201609091100.jar</systemPath>
         </dependency>
 
         <dependency>

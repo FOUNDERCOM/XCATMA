@@ -31,4 +31,25 @@
         <property name="maxInMemorySize" value="4096"/>
     </bean>
 
+    <!-- MGMT API URL -->
+    <bean id="mgmtApiUrl" class="java.lang.String">
+        <constructor-arg value="123"/>
+    </bean>
+
+    <bean id="userMgmt" class="com.easymap.management.api.UserManager" scope="prototype">
+        <constructor-arg value="mgmtApiUrl"/>
+    </bean>
+
+    <bean id="funcMgmt" class="com.easymap.management.newapi.FunctionManager" scope="prototype">
+        <constructor-arg value="mgmtApiUrl"/>
+    </bean>
+
+    <bean id="orgMgmt" class="com.easymap.management.api.OrganizationManager" scope="prototype">
+        <constructor-arg value="mgmtApiUrl"/>
+    </bean>
+
+    <bean id="logMgmt" class="com.easymap.management.api.LogManager" scope="prototype">
+        <constructor-arg value="mgmtApiUrl"/>
+    </bean>
+
 </beans>

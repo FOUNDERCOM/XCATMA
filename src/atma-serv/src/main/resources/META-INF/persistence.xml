@@ -5,8 +5,14 @@
     <persistence-unit name="atma_mgmt" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <!-- Aux Entities -->
-
+        <!-- ATMA Entities -->
+        <class>com.founder.xc.atma.entity.Alarm</class>
+        <class>com.founder.xc.atma.entity.Hotel</class>
+        <class>com.founder.xc.atma.entity.Message</class>
+        <class>com.founder.xc.atma.entity.Reciever</class>
+        <class>com.founder.xc.atma.entity.Record</class>
+        <class>com.founder.xc.atma.entity.Setting</class>
+        <class>com.founder.xc.atma.entity.White</class>
         <!-- Dept Entities -->
 
         <!-- Attachment -->
