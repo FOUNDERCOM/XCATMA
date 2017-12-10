@@ -142,7 +142,9 @@ public class AlarmServiceImpl implements AlarmService {
 
     @Override
     public void create(Alarm entity) {
+        // 1、保存
         em.persist(entity);
+        // 2、发送邮件
     }
 
     @Override
