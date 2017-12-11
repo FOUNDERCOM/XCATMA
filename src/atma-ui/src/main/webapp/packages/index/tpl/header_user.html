@@ -1,15 +1,15 @@
 <!-- header user menu -->
 
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-    <span class="username username-hide-on-mobile"> {{token.user.type != 'ANONYMOUS' ? token.user.org.bureau.name + " - " + token.user.org.name + " - " : ""}}{{token.user.name}} </span>
+    <span class="username username-hide-on-mobile"> {{token.user.account != 'anonymous' ? token.user.org.name + " - " : ""}}{{token.user.name}} </span>
     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-    <img alt="" class="img-circle" src="data:image/jpeg;base64,{{token.user['photo']}}"/> </a>
-<ul class="dropdown-menu dropdown-menu-default" ng-if="token.user.id != '-1'">
+    <img alt="" class="img-circle" src="resources/layouts/layout4/img/default-user.png"/> </a>
+<ul class="dropdown-menu dropdown-menu-default" ng-if="token.user.account != 'anonymous'">
+    <!--
     <li>
         <a ui-sref="my_info">
             <i class="icon-user"></i> 我的信息 </a>
     </li>
-    <!--
     <li>
         <a href="#">
             <i class="icon-calendar"></i> 我的计划 </a>

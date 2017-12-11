@@ -19,16 +19,6 @@
 
 package com.founder.xc.sys.service.impl;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.easymap.management.api.OrganizationManager;
 import com.easymap.management.api.UserManager;
 import com.easymap.management.entity.Function;
@@ -36,11 +26,17 @@ import com.easymap.management.newapi.FunctionManager;
 import com.easymap.management.user.User;
 import com.founder.xc.sys.dto.AtmaToken;
 import com.founder.xc.sys.dto.FuncDTO;
-import com.founder.xc.sys.dto.OrgDTO;
-import com.founder.xc.sys.dto.UserDTO;
 import com.founder.xc.sys.service.AuthService;
 import com.lee.jwaf.token.FuncTree;
 import com.lee.jwaf.token.Token;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Description: 权限服务.<br>
@@ -85,30 +81,19 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public Token getTokenByUserId(String userId) {
         final AtmaToken token = new AtmaToken();
-        final UserDTO user = new UserDTO();
-        final OrgDTO org = new OrgDTO();
         //noinspection CheckStyle
         try {
             final User userByServ = userMgmt.getUser(userId);
 
-            org.setId(userByServ.getOrgId().hashCode());
-            org.setCode(userByServ.getOrgId());
-            org.setName(orgMgmt.findOrganizationById(userByServ.getOrgId()).getName());
+            token.org().setCode(userByServ.getOrgId());
+            token.org().setName(orgMgmt.findOrganizationById(userByServ.getOrgId()).getName());
 
-            user.setId(userId.hashCode());
-            user.setName(userByServ.getName());
-            user.setOrg(org);
+            token.user().setAccount(userId);
+            token.user().setName(userByServ.getName());
+            token.user().setOrg(token.org());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // org
-        token.org().setId(user.getOrg().getId());
-        token.org().setName(user.getOrg().getName());
-
-        // user
-        token.user().setId(user.getId());
-        token.user().setName(user.getName());
 
         final List<FuncTree> funcList = new LinkedList<>();
         //noinspection CheckStyle
@@ -116,7 +101,9 @@ public class AuthServiceImpl implements AuthService {
             final List<Function> list = funcMgmt.getFunctionByUserId(userId);
             for (Function f : list) {
                 final FuncDTO func = new FuncDTO();
-                func.setCode(f.getCode());
+                func.setId(Integer.parseInt(f.getCode()));
+                func.setName(f.getName());
+                func.setCode(f.getUrl());
                 funcList.add(func);
             }
         } catch (Exception ex) {

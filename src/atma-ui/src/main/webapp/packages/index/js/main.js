@@ -148,7 +148,7 @@ angular.module("WebApp").config(['$stateProvider', '$urlRouterProvider', functio
             "nav": ["首页"],
             "isBuiltIn": true,
             "pageTitle": "首页",
-            "pageSubTitle": "辅警管理系统"
+            "pageSubTitle": "短信预警系统"
         },
         controller: "HomeCtrl",
         resolve: {
@@ -218,10 +218,10 @@ angular.module("WebApp").run(["$rootScope", "settings", "$state", function($root
             url: "mvc/dispatch", async: false,
             data: {controller: "LoginController", method: "getCurrentToken"},
             success: function (data) {
-                $rootScope.token = {"user": data.user, "funcs": data.funcs, "funcTree": data.funcTree};
-                $rootScope.token.user.photo = data.photo.data;
-                $rootScope.token.user.type = $rootScope.token.user.id === -1 ?
-                    "ANONYMOUS" : $rootScope.token.user.id === -2 ? "ADMIN" : "NORMAL";
+                $rootScope.token = {"user": data.user, "funcs": data.funcs, "funcTree": data.funcTree, funcStatus: {}};
+                $.each(data.funcs, function(idx, func) {
+                    $rootScope.token.funcStatus[func.code] = true;
+                });
             }
         });
     };

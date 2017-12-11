@@ -10,7 +10,7 @@
     xmlns:jee="http://www.springframework.org/schema/jee"
     xmlns:tx="http://www.springframework.org/schema/tx">
 
-    <context:component-scan base-package="com.founder.xc.atma" />
+    <context:component-scan base-package="com.founder.xc" />
 
     <bean id="atmaEntityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="atma_mgmt" />
@@ -33,23 +33,23 @@
 
     <!-- MGMT API URL -->
     <bean id="mgmtApiUrl" class="java.lang.String">
-        <constructor-arg value="123"/>
+        <constructor-arg value="http://10.60.148.55:8080/EzManager6"/>
     </bean>
 
     <bean id="userMgmt" class="com.easymap.management.api.UserManager" scope="prototype">
-        <constructor-arg value="mgmtApiUrl"/>
+        <constructor-arg ref="mgmtApiUrl"/>
     </bean>
 
     <bean id="funcMgmt" class="com.easymap.management.newapi.FunctionManager" scope="prototype">
-        <constructor-arg value="mgmtApiUrl"/>
+        <constructor-arg ref="mgmtApiUrl"/>
     </bean>
 
     <bean id="orgMgmt" class="com.easymap.management.api.OrganizationManager" scope="prototype">
-        <constructor-arg value="mgmtApiUrl"/>
+        <constructor-arg ref="mgmtApiUrl"/>
     </bean>
 
     <bean id="logMgmt" class="com.easymap.management.api.LogManager" scope="prototype">
-        <constructor-arg value="mgmtApiUrl"/>
+        <constructor-arg ref="mgmtApiUrl"/>
     </bean>
 
 </beans>

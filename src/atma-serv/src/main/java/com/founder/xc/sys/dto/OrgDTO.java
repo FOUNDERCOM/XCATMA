@@ -19,9 +19,9 @@
 
 package com.founder.xc.sys.dto;
 
-import java.io.Serializable;
-
 import com.lee.jwaf.token.Org;
+
+import java.io.Serializable;
 
 /**
  * Description: Org.<br>
@@ -34,8 +34,6 @@ public class OrgDTO implements Org, Serializable {
 
     private static final long serialVersionUID = 2494748680229395013L;
 
-    /** ID. */
-    private Integer id;
     /** Name. */
     private String name;
     /** Code. */
@@ -47,8 +45,9 @@ public class OrgDTO implements Org, Serializable {
      * @return return the id
      */
     @Override
+    @Deprecated
     public Integer getId() {
-        return id;
+        return null;
     }
 
     /**
@@ -57,8 +56,8 @@ public class OrgDTO implements Org, Serializable {
      * @param id the id to set
      */
     @Override
+    @Deprecated
     public void setId(Integer id) {
-        this.id = id;
     }
 
     /**

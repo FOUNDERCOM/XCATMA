@@ -1,0 +1,87 @@
+{
+    "msg-receive": {
+        "data": {
+            "isBuiltIn": true,
+            "pageTitle": "短信接收",
+            "pageSubTitle": "管理短信接收人"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    },
+    "white": {
+        "data": {
+            "isBuiltIn": true,
+            "pageTitle": "白名单",
+            "pageSubTitle": "在白名单中的人将不会被监控"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    },
+    "log": {
+        "data": {
+            "isBuiltIn": true,
+            "pageTitle": "日志查看",
+            "pageSubTitle": "系统操作日志"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    },
+    "alarm-view": {
+        "data": {
+            "isBuiltIn": true,
+            "pageTitle": "预警展示",
+            "pageSubTitle": "展示已经预警的信息"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    },
+    "alarm-edit": {
+        "data": {
+            "isBuiltIn": true,
+            "pageTitle": "预警编辑",
+            "pageSubTitle": "编辑已经预警的信息"
+        },
+        "templateUrl": "packages/index/tpl/coming_soon.html",
+        "controller": "ComingCtrl",
+        "files": [
+            "packages/index/css/coming-soon.css",
+
+            "resources/global/plugins/backstretch/jquery.backstretch.min.js",
+            "resources/global/plugins/countdown/jquery.countdown.min.js",
+            "resources/global/plugins/countdown/plugin/jquery.countdown-zh-CN.js",
+            "packages/index/js/ctrls/ComingCtrl.js"
+        ]
+    }
+}

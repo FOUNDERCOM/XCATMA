@@ -19,20 +19,18 @@
 
 package com.founder.xc.atma.controller;
 
-import java.util.Date;
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
-
 import com.founder.xc.atma.entity.Reciever;
 import com.founder.xc.atma.service.RecieverService;
 import com.founder.xc.sys.dto.UserDTO;
 import com.founder.xc.utils.ClientIPUtils;
 import com.lee.jwaf.action.AbstractControllerSupport;
 import com.lee.util.DateUtils;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
+import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * Description: .<br>
@@ -81,7 +79,7 @@ public class RecieverController extends AbstractControllerSupport {
     private Reciever prepareEntity() {
         final Reciever entity = workDTO.convertJsonToBeanByKey("entity", Reciever.class);
         //noinspection CheckStyle
-        entity.setLastUpdateUserId(((UserDTO)sessionDTO.currentToken().user()).getNo());
+        entity.setLastUpdateUserId(((UserDTO)sessionDTO.currentToken().user()).getAccount());
         entity.setLastUpdateUserName(sessionDTO.currentToken().user().getName());
         entity.setLastUpdateDate(DateUtils.format(new Date(), "yyyy-MM-dd hh:mm:ss"));
         entity.setLastUpdateIp(ClientIPUtils.getClientIp(servletRequest));

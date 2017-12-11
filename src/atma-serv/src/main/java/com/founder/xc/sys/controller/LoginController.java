@@ -19,15 +19,14 @@
 
 package com.founder.xc.sys.controller;
 
-import javax.annotation.Resource;
-
+import com.founder.xc.sys.service.AuthService;
+import com.lee.jwaf.action.AbstractControllerSupport;
+import com.lee.util.ObjectUtils;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.founder.xc.sys.service.AuthService;
-import com.lee.jwaf.action.AbstractControllerSupport;
-import com.lee.util.ObjectUtils;
+import javax.annotation.Resource;
 
 /**
  * Description: 登录和令牌相关控制器.<br>
@@ -51,7 +50,7 @@ public class LoginController extends AbstractControllerSupport {
         final String userId = authService.checkAccountAndPwd(workDTO.<String>get("account"), workDTO.<String>get("pwd"));
         if (ObjectUtils.isEmpty(userId)) {
             workDTO.setResult(false);
-            sessionDTO.setActiveUser(authService.getTokenByUserId("-1"));
+            sessionDTO.setActiveUser(authService.getTokenByUserId("anonymous"));
         } else {
             workDTO.setResult(true);
             sessionDTO.setActiveUser(authService.getTokenByUserId(userId));
@@ -72,7 +71,7 @@ public class LoginController extends AbstractControllerSupport {
     public void getCurrentToken() {
         workDTO.clear();
         if (!sessionDTO.hasToken()) {
-            sessionDTO.setActiveUser(authService.getTokenByUserId("-1"));
+            sessionDTO.setActiveUser(authService.getTokenByUserId("anonymous"));
         }
         workDTO.put("user", sessionDTO.currentToken().user());
         workDTO.put("funcs", sessionDTO.currentToken().funcs());

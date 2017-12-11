@@ -19,11 +19,11 @@
 
 package com.founder.xc.sys.dto;
 
-import java.io.Serializable;
-
 import com.lee.jwaf.token.Dict;
 import com.lee.jwaf.token.Org;
 import com.lee.jwaf.token.User;
+
+import java.io.Serializable;
 
 /**
  * Description: User.<br>
@@ -36,10 +36,8 @@ public class UserDTO implements User, Serializable {
 
     private static final long serialVersionUID = 8097971841099343594L;
 
-    /** Id. */
-    private Integer id;
-    /** No. */
-    private String no;
+    /** account. */
+    private String account;
     /** Station. */
     private Org org;
     /** Name. */
@@ -51,8 +49,9 @@ public class UserDTO implements User, Serializable {
      * @return return the id
      */
     @Override
+    @Deprecated
     public Integer getId() {
-        return id;
+        return null;
     }
 
     /**
@@ -60,8 +59,8 @@ public class UserDTO implements User, Serializable {
      *
      * @param id the id to set
      */
+    @Deprecated
     public void setId(Integer id) {
-        this.id = id;
     }
 
     /**
@@ -110,9 +109,8 @@ public class UserDTO implements User, Serializable {
      * @return null
      */
     @Override
-    @Deprecated
     public String getAccount() {
-        return null;
+        return account;
     }
 
     /**
@@ -120,8 +118,8 @@ public class UserDTO implements User, Serializable {
      * @deprecated no impl
      */
     @Override
-    @Deprecated
     public void setAccount(String account) {
+        this.account = account;
     }
 
     /**
@@ -143,23 +141,5 @@ public class UserDTO implements User, Serializable {
     @Deprecated
     public void setType(Dict dict) {
 
-    }
-
-    /**
-     * Get the no.
-     *
-     * @return return the no
-     */
-    public String getNo() {
-        return no;
-    }
-
-    /**
-     * Set no.
-     *
-     * @param no the no to set
-     */
-    public void setNo(String no) {
-        this.no = no;
     }
 }
