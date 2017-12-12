@@ -17,9 +17,9 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
-angular.module('WebApp').controller('ReceiverModifyCtrl', ['$scope', "$ajaxCall", function ($scope, $ajaxCall) {
+angular.module('WebApp').controller('WhiteModifyCtrl', ['$scope', "$ajaxCall", function ($scope, $ajaxCall) {
 
-    var form = $('.modifyReceiverForm');
+    var form = $('.modifyWhiteForm');
     var error = $('.alert-danger', form);
     var success = $('.alert-success', form);
 
@@ -29,19 +29,28 @@ angular.module('WebApp').controller('ReceiverModifyCtrl', ['$scope', "$ajaxCall"
         focusInvalid: false, // do not focus the last invalid input
         ignore: "",  // validate all fields including form hidden input
         rules: {
-            orgName: {
-                minlength: 1,
-                maxlength: 32,
-                required: true
-            },
             name: {
-                minlength: 1,
+                minlength: 2,
                 maxlength: 32,
                 required: true
             },
-            tel: {
-                minlength: 11,
-                maxlength: 11,
+            strength: {
+                min: 0,
+                max: 99999,
+                required: true,
+                number: true
+            },
+            contactName: {
+                minlength: 2,
+                maxlength: 8,
+                required: true
+            },
+            contactTel: {
+                maxlength: 16,
+                required: true
+            },
+            contactMobile: {
+                maxlength: 16,
                 required: true
             }
         },
@@ -88,7 +97,7 @@ angular.module('WebApp').controller('ReceiverModifyCtrl', ['$scope', "$ajaxCall"
         if (form.validate().form()) {
             $ajaxCall.post({
                 data : {
-                    controller: "RecieverController",
+                    controller: "ReceiverController",
                     method: $scope.method,
                     entity : JSON.stringify($scope.entity)
                 },
@@ -99,12 +108,5 @@ angular.module('WebApp').controller('ReceiverModifyCtrl', ['$scope', "$ajaxCall"
             });
         }
     };
-
-    $scope.prepareToSelectOrg = function() {
-        $("#deptSelectModalDiv").scope().$on("submit", function(event, data) {
-            $scope.entity.orgId = data.code;
-            $scope.entity.orgName = data.name;
-        });
-    }
 
 }]);

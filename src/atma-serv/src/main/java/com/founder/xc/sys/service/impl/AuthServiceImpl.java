@@ -44,10 +44,6 @@ import java.util.List;
  *
  * @author Jimmybly Lee
  */
-@Transactional
-@Service
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-@SuppressWarnings("unused")
 public class AuthServiceImpl implements AuthService {
     /**
      * SerialVersionUID.

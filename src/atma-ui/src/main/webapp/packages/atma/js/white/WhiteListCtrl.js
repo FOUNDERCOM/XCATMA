@@ -17,13 +17,13 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
-angular.module('WebApp').controller('ReceiverListCtrl', ['$rootScope', '$scope', "$listService", "$ajaxCall", function ($rootScope, $scope, $listService, $ajaxCall) {
+angular.module('WebApp').controller('WhiteListCtrl', ['$rootScope', '$scope', "$listService", "$ajaxCall", function ($rootScope, $scope, $listService, $ajaxCall) {
 
-    $scope.modifyDivId = "modifyReceiverModalDiv";
+    $scope.modifyDivId = "modifyModalDiv";
 
     $scope.condition = {};
     $listService.init($scope, {
-        "controller": "RecieverController",
+        "controller": "WhiteController",
         "method": "query",
         callback: function (success) {
             $scope.list = success.data.result;
@@ -46,6 +46,11 @@ angular.module('WebApp').controller('ReceiverListCtrl', ['$rootScope', '$scope',
         scope.title = "添加短信息接收人信息";
         scope.method = "create";
         scope.entity = {
+            isEnabled: true,
+            bureau: {
+                id: $rootScope.token.user.org.bureau.id,
+                name: $rootScope.token.user.org.bureau.name
+            }
         };
 
         scope.$on("submitted", function () {

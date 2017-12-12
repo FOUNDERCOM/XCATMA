@@ -51,7 +51,7 @@ public class RecieverController extends AbstractControllerSupport {
      * Query.
      */
     public void query() {
-        final Reciever condition = workDTO.convertJsonToBeanByKey("entity", Reciever.class);
+        final Reciever condition = workDTO.convertJsonToBeanByKey("condition", Reciever.class);
         workDTO.setResult(service.query(condition, workDTO.getStart(), workDTO.getLimit()));
         workDTO.setTotle(service.count(condition));
     }

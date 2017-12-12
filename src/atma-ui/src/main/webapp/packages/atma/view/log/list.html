@@ -1,0 +1,63 @@
+<div class="form">
+    <form action="#" class="form-horizontal">
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">操作人</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="操作人账号" ng-model="condition.account">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a href="javascript:" class="btn btn-sm grey" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="portlet box grey">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-list"></i> 操作日志
+        </div>
+        <div class="tools">
+            <a href="javascript:" class="fullscreen"></a>
+            <a href="javascript:" class="reload" ng-click="load()"></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="table-scrollable">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center wid60px">#</th>
+                        <th class="text-center wid180px">账号</th>
+                        <th class="text-center wid90px">操作内容</th>
+                        <th class="text-center wid90px">操作时间</th>
+                        <th class="text-center wid160px">操作</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in list">
+                        <td class="text-center">{{$index + 1}}</td>
+                        <td class="text-center">{{item['account']}}</td>
+                        <td class="text-center">{{item['context']}}</td>
+                        <td class="text-center">{{item['date']}}</td>
+                        <td class="text-center">
+                            <!-- 编辑 -->
+                            <!--suppress HtmlUnknownAnchorTarget -->
+                            <a href="/#modifyStationModalDiv" data-toggle="modal" class="btn btn-xs blue"
+                               bs-tooltip data-title="查看" ng-click="prepareToUpdate(item)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div table-paging-footer></div>
+    </div>
+</div>

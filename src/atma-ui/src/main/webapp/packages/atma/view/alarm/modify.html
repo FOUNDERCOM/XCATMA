@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <div class="form">
-                    <form action="#" class="form-horizontal modifyReceiverForm">
+                    <form action="#" class="form-horizontal modifyStationForm">
                         <div class="form-boy">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button> <i class="fa fa-warning"></i> 请检查输入项. </div>
@@ -18,12 +18,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">单位<span class="required"> * </span></label>
                                         <div class="col-md-9">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control disabled" placeholder="单位" name="orgName" ng-model="entity.orgName" readonly>
-                                                <span class="input-group-btn">
-                                                    <a href="/#deptSelectModalDiv" data-toggle="modal" class="btn btn-success" ng-click="prepareToSelectOrg()">选择</a>
-                                                </span>
-                                            </div>
+                                            <input type="text" class="form-control" placeholder="单位" name="name" ng-model="entity.orgId">
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +34,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">电话<span class="required"> * </span></label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="电话" name="tel" ng-model="entity.tel">
+                                            <input type="text" class="form-control" placeholder="电话" name="strength" ng-model="entity.tel">
                                         </div>
                                     </div>
                                 </div>

@@ -69,6 +69,7 @@ public class RecieverServiceImpl implements RecieverService {
         String hql = "select count(r) from Reciever as r";
         hql += makeQuery(null, condition);
         final Query query = em.createQuery(hql);
+        makeQuery(query, condition);
         return ((Number) query.getSingleResult()).intValue();
     }
 
@@ -86,6 +87,9 @@ public class RecieverServiceImpl implements RecieverService {
         if (!StringUtils.isEmpty(condition.getOrgId())) {
             hql += " and r.orgId = :orgId";
         }
+        if (!StringUtils.isEmpty(condition.getOrgName())) {
+            hql += " and r.orgName like :orgName";
+        }
         if (!StringUtils.isEmpty(condition.getTel())) {
             hql += " and r.tel like :tel";
         }
@@ -93,10 +97,13 @@ public class RecieverServiceImpl implements RecieverService {
             return hql;
         }
         if (!StringUtils.isEmpty(condition.getName())) {
-            query.setParameter("name", "" + condition.getName() + "");
+            query.setParameter("name", "%" + condition.getName() + "%");
         }
         if (!StringUtils.isEmpty(condition.getOrgId())) {
             query.setParameter("orgId", condition.getOrgId());
+        }
+        if (!StringUtils.isEmpty(condition.getOrgName())) {
+            query.setParameter("orgName", "%" + condition.getOrgName() + "%");
         }
         if (!StringUtils.isEmpty(condition.getTel())) {
             query.setParameter("tel", condition.getTel() + "%");

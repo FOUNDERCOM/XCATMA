@@ -4,49 +4,43 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="control-label col-md-3">单位</label>
+                        <label class="control-label col-md-3">旅店</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="所属单位名称" ng-model="condition.orgName">
+                            <input type="text" class="form-control" placeholder="旅店名称" ng-model="condition.hotelName">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="control-label col-md-3">名称</label>
+                        <label class="control-label col-md-3">派出所</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="接收人姓名" ng-model="condition.name">
+                            <input type="text" class="form-control" placeholder="派出所名称" ng-model="condition.HotelStationName">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="control-label col-md-3">电话</label>
+                        <label class="control-label col-md-3">身份证</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="xx" ng-model="condition.tel">
+                            <input type="text" class="form-control" placeholder="身份证号" ng-model="condition.recCid">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <a href="javascript:" class="btn btn-sm blue-soft" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
+                    <a href="javascript:" class="btn btn-sm red-thunderbird" ng-click="load()"><i class="fa fa-search"></i> 搜索</a>
                 </div>
             </div>
         </div>
     </form>
 </div>
-<div class="portlet box blue-soft">
+<div class="portlet box red-thunderbird">
     <div class="portlet-title">
         <div class="caption">
-            <i class="icon-bubbles"></i> 接收人信息
+            <i class="icon-bell"></i> 预警信息
         </div>
         <div class="tools">
             <a href="javascript:" class="fullscreen"></a>
             <a href="javascript:" class="reload" ng-click="load()"></a>
-        </div>
-        <div class="actions">
-            <!--suppress HtmlUnknownAnchorTarget -->
-            <a href="/#modifyReceiverModalDiv" data-toggle="modal" class="btn btn-default" ng-click="prepareToAdd()">
-                <i class="glyphicon glyphicon-plus"></i> 接收人
-            </a>
         </div>
     </div>
     <div class="portlet-body">
@@ -55,9 +49,9 @@
                 <thead>
                     <tr>
                         <th class="text-center wid60px">#</th>
-                        <th class="text-center wid180px">单位</th>
-                        <th class="text-center wid90px">姓名</th>
-                        <th class="text-center wid90px">电话</th>
+                        <th class="text-center wid180px">旅店</th>
+                        <th class="text-center wid90px">时间</th>
+                        <th class="text-center wid90px">人员</th>
                         <th class="text-center wid120px">最后一次操作</th>
                         <th class="text-center wid160px">操作</th>
                     </tr>
@@ -66,22 +60,31 @@
                 <tbody>
                     <tr ng-repeat="item in list">
                         <td class="text-center">{{$index + 1}}</td>
-                        <td class="text-center">{{item['orgName']}}</td>
+                        <td class="text-center">{{item['orgId']}}</td>
                         <td class="text-center">{{item['name']}}</td>
                         <td class="text-center">{{item['tel']}}</td>
                         <td class="text-center">
-                            <a href="javascript:" bs-popover data-original-title="{{item['lastUpdateUserName']}}<a href='javascript:' class='close'>&times;</a>"
-                               data-content="<b><i class='fa fa-newspaper-o'></i> 操作人ID:</b> {{item['lastUpdateUserId']}}<br/>
-                                            <b><i class='icon-user'></i> 操作人名称:</b> {{item['lastUpdateUserName']}}<br/>
+                            <a href="javascript:" bs-popover data-original-title="{{item['lastUpdateUser']['name']}}<a href='javascript:' class='close'>&times;</a>"
+                               data-content="<b><i class='fa fa-newspaper-o'></i> 操作人ID:</b> {{item['lastUpdateUser']['id']}}<br/>
+                                            <b><i class='icon-user'></i> 操作人名称:</b> {{item['lastUpdateUser']['name']}}<br/>
                                             <b><i class='icon-calendar'></i> 操作时间:</b> {{item['lastUpdateDate']}}<br/>
                                             <b><i class='icon-screen-desktop'></i> 操作电脑:</b> {{item['lastUpdateIp']}}">
-                                {{item['lastUpdateUserName']}}
+                                {{item['lastUpdateUser']['name']}}
                             </a>
                         </td>
                         <td class="text-center">
+                            <!-- 启用/禁用 -->
+                            <a href="javascript:" class="btn btn-xs red" bs-tooltip data-title="禁用"
+                               ng-if="item.isEnabled" ng-click="changeStatus(item, false)">
+                                <i class="fa fa-ban"></i>
+                            </a>
+                            <a href="javascript:" class="btn btn-xs green" bs-tooltip data-title="启用"
+                               ng-if="!item.isEnabled" ng-click="changeStatus(item, true)">
+                                <i class="fa fa-recycle"></i>
+                            </a>
                             <!-- 编辑 -->
                             <!--suppress HtmlUnknownAnchorTarget -->
-                            <a href="/#modifyReceiverModalDiv" data-toggle="modal" class="btn btn-xs blue"
+                            <a href="/#modifyStationModalDiv" data-toggle="modal" class="btn btn-xs blue"
                                bs-tooltip data-title="编辑" ng-click="prepareToUpdate(item)">
                                 <i class="fa fa-edit"></i>
                             </a>

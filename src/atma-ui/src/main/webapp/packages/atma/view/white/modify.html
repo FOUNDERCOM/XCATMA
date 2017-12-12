@@ -1,4 +1,4 @@
-<div class="modal fade" id="modifyReceiverModalDiv" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false" ng-controller="ReceiverModifyCtrl">
+<div class="modal fade" id="modifyWhiteModalDiv" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false" ng-controller="WhiteModifyCtrl">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <div class="form">
-                    <form action="#" class="form-horizontal modifyReceiverForm">
+                    <form action="#" class="form-horizontal modifyStationForm">
                         <div class="form-boy">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button> <i class="fa fa-warning"></i> 请检查输入项. </div>
@@ -16,20 +16,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">单位<span class="required"> * </span></label>
-                                        <div class="col-md-9">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control disabled" placeholder="单位" name="orgName" ng-model="entity.orgName" readonly>
-                                                <span class="input-group-btn">
-                                                    <a href="/#deptSelectModalDiv" data-toggle="modal" class="btn btn-success" ng-click="prepareToSelectOrg()">选择</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">单位<span class="required"> * </span></label>
+                                        <label class="control-label col-md-3">姓名<span class="required"> * </span></label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control" placeholder="姓名" name="name" ng-model="entity.name">
                                         </div>
@@ -37,9 +24,17 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">电话<span class="required"> * </span></label>
+                                        <label class="control-label col-md-3">身份证<span class="required"> * </span></label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="电话" name="tel" ng-model="entity.tel">
+                                            <input type="text" class="form-control" placeholder="身份证" name="cid" ng-model="entity.cid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">祖籍<span class="required"> * </span></label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder="祖籍" name="nativePlace" ng-model="entity.nativePlace">
                                         </div>
                                     </div>
                                 </div>
@@ -49,8 +44,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn blue-soft" aria-hidden="true" ng-click="submit()">
-                    <i class="fa fa-save"></i> 保存短信息接收人信息</button>
+                <button type="button" class="btn green-seagreen" aria-hidden="true" ng-click="submit()">
+                    <i class="fa fa-save"></i> 保存白名单信息</button>
                 <button type="button" class="btn btn-outline dark" data-dismiss="modal" aria-hidden="true"> 关闭</button>
             </div>
         </div>

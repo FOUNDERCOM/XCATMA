@@ -57,6 +57,10 @@ public class Reciever implements Serializable {
     @Column(name = "ORG_ID")
     private String orgId;
 
+    /** Org name. */
+    @Column(name = "ORG_NAME")
+    private String orgName;
+
     /** 最近更新人ID. */
     @Column(name = "LATEST_UPDATE_USER_ID")
     private String lastUpdateUserId;
@@ -140,6 +144,24 @@ public class Reciever implements Serializable {
      */
     public void setOrgId(String orgId) {
         this.orgId = orgId;
+    }
+
+    /**
+     * Get the orgName.
+     *
+     * @return return the orgName
+     */
+    public String getOrgName() {
+        return orgName;
+    }
+
+    /**
+     * Set orgName.
+     *
+     * @param orgName the orgName to set
+     */
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
     }
 
     /**

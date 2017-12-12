@@ -1,0 +1,48 @@
+<div class="modal fade" id="deptSelectModalDiv" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false" ng-controller="DeptSelectCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true"></a>
+                <h4 class="modal-title"><i class="icon-drawer"></i> 选择单位</h4>
+            </div>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input class="form-control" placeholder="单位名称" ng-model="conditionOrgName">
+                        </div>
+                        <a href="javascript:" class="btn btn-primary" ng-click="searchOrg()">搜索</a>
+                    </div>
+                    <div class="table-scrollable">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center wid160px">单位</th>
+                                    <th class="text-center wid60px">操作</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr ng-repeat="item in orgList">
+                                    <td class="text-center">{{item['name']}}</td>
+                                    <td class="text-center">
+                                        <!-- 编辑 -->
+                                        <!--suppress HtmlUnknownAnchorTarget -->
+                                        <a href="javascript:" data-dismiss="modal" aria-hidden="true" class="btn btn-xs blue"
+                                           bs-tooltip data-title="选择" ng-click="submit(item)">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline dark" data-dismiss="modal" aria-hidden="true"> 关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
