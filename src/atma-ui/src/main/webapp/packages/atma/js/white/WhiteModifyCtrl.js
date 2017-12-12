@@ -30,27 +30,20 @@ angular.module('WebApp').controller('WhiteModifyCtrl', ['$scope', "$ajaxCall", f
         ignore: "",  // validate all fields including form hidden input
         rules: {
             name: {
-                minlength: 2,
+                minlength: 1,
                 maxlength: 32,
                 required: true
             },
-            strength: {
-                min: 0,
-                max: 99999,
-                required: true,
-                number: true
-            },
-            contactName: {
-                minlength: 2,
-                maxlength: 8,
+
+            cid: {
+                minlength: 18,
+                maxlength: 18,
                 required: true
             },
-            contactTel: {
-                maxlength: 16,
-                required: true
-            },
-            contactMobile: {
-                maxlength: 16,
+
+            nativePlace: {
+                minlength: 1,
+                maxlength: 18,
                 required: true
             }
         },
@@ -97,13 +90,13 @@ angular.module('WebApp').controller('WhiteModifyCtrl', ['$scope', "$ajaxCall", f
         if (form.validate().form()) {
             $ajaxCall.post({
                 data : {
-                    controller: "ReceiverController",
+                    controller: "WhiteController",
                     method: $scope.method,
                     entity : JSON.stringify($scope.entity)
                 },
                 success: function() {
                     $scope.$emit("submitted");
-                    $("#modifyReceiverModalDiv").modal('hide');
+                    $("#modifyWhiteModalDiv").modal('hide');
                 }
             });
         }

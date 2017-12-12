@@ -72,7 +72,7 @@ public class WhiteServiceImpl implements WhiteService {
         hql += makeQuery(null, condition);
         final Query query = em.createQuery(hql);
         makeQuery(query, condition);
-        return ((Number) query.getResultList()).intValue();
+        return ((Number) query.getSingleResult()).intValue();
     }
 
     /**
@@ -93,14 +93,14 @@ public class WhiteServiceImpl implements WhiteService {
         if (!StringUtils.isEmpty(condition.getNativePlace())) {
             hql += " and w.nativePlace like :nativePlace";
         }
-        if (ObjectUtils.isEmpty(condition)) {
+        if (ObjectUtils.isEmpty(query)) {
             return hql;
         }
         if (!StringUtils.isEmpty(condition.getName())) {
             query.setParameter("name", "%" + condition.getName() + "%");
         }
         if (!StringUtils.isEmpty(condition.getCid())) {
-            query.setParameter("cid", "%" + condition.getCid() + "%");
+            query.setParameter("cid", condition.getCid() + "%");
         }
         if (!StringUtils.isEmpty(condition.getNativePlace())) {
             query.setParameter("nativePlace", "%" + condition.getNativePlace() + "%");

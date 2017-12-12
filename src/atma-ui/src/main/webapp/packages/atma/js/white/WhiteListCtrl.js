@@ -19,7 +19,7 @@
 
 angular.module('WebApp').controller('WhiteListCtrl', ['$rootScope', '$scope', "$listService", "$ajaxCall", function ($rootScope, $scope, $listService, $ajaxCall) {
 
-    $scope.modifyDivId = "modifyModalDiv";
+    $scope.modifyDivId = "modifyWhiteModalDiv";
 
     $scope.condition = {};
     $listService.init($scope, {
@@ -43,14 +43,9 @@ angular.module('WebApp').controller('WhiteListCtrl', ['$rootScope', '$scope', "$
      */
     $scope.prepareToAdd = function () {
         var scope = $("#" + $scope.modifyDivId).scope();
-        scope.title = "添加短信息接收人信息";
+        scope.title = "添加白名单信息";
         scope.method = "create";
         scope.entity = {
-            isEnabled: true,
-            bureau: {
-                id: $rootScope.token.user.org.bureau.id,
-                name: $rootScope.token.user.org.bureau.name
-            }
         };
 
         scope.$on("submitted", function () {
@@ -64,7 +59,7 @@ angular.module('WebApp').controller('WhiteListCtrl', ['$rootScope', '$scope', "$
      */
     $scope.prepareToUpdate = function (item) {
         var scope = $("#" + $scope.modifyDivId).scope();
-        scope.title = "修改短信息接收人信息";
+        scope.title = "修改白名单信息";
         scope.method = "update";
         scope.entity = item;
 
@@ -72,6 +67,19 @@ angular.module('WebApp').controller('WhiteListCtrl', ['$rootScope', '$scope', "$
             $scope.load();
         });
         scope.clear();
+    };
+
+    $scope.remove = function(item) {
+        $ajaxCall.post({
+            data: {
+                controller: "WhiteController",
+                method: "remove",
+                id: item.id
+            },
+            success: function() {
+                $scope.load();
+            }
+        })
     };
 
 }]);

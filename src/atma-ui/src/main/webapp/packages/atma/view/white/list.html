@@ -62,29 +62,26 @@
                         <td class="text-center">{{item['cid']}}</td>
                         <td class="text-center">{{item['nativePlace']}}</td>
                         <td class="text-center">
-                            <a href="javascript:" bs-popover data-original-title="{{item['lastUpdateUser']['name']}}<a href='javascript:' class='close'>&times;</a>"
-                               data-content="<b><i class='fa fa-newspaper-o'></i> 操作人ID:</b> {{item['lastUpdateUser']['id']}}<br/>
-                                            <b><i class='icon-user'></i> 操作人名称:</b> {{item['lastUpdateUser']['name']}}<br/>
+                            <a href="javascript:" bs-popover data-original-title="{{item['lastUpdateUserName']}}<a href='javascript:' class='close'>&times;</a>"
+                               data-content="<b><i class='fa fa-newspaper-o'></i> 操作人ID:</b> {{item['lastUpdateUserId']}}<br/>
+                                            <b><i class='icon-user'></i> 操作人名称:</b> {{item['lastUpdateUserName']}}<br/>
                                             <b><i class='icon-calendar'></i> 操作时间:</b> {{item['lastUpdateDate']}}<br/>
                                             <b><i class='icon-screen-desktop'></i> 操作电脑:</b> {{item['lastUpdateIp']}}">
-                                {{item['lastUpdateUser']['name']}}
+                                {{item['lastUpdateUserName']}}
                             </a>
                         </td>
                         <td class="text-center">
-                            <!-- 启用/禁用 -->
-                            <a href="javascript:" class="btn btn-xs red" bs-tooltip data-title="禁用"
-                               ng-if="item.isEnabled" ng-click="changeStatus(item, false)">
-                                <i class="fa fa-ban"></i>
-                            </a>
-                            <a href="javascript:" class="btn btn-xs green" bs-tooltip data-title="启用"
-                               ng-if="!item.isEnabled" ng-click="changeStatus(item, true)">
-                                <i class="fa fa-recycle"></i>
-                            </a>
                             <!-- 编辑 -->
                             <!--suppress HtmlUnknownAnchorTarget -->
-                            <a href="/#modifyStationModalDiv" data-toggle="modal" class="btn btn-xs blue"
+                            <a href="/#modifyWhiteModalDiv" data-toggle="modal" class="btn btn-xs blue"
                                bs-tooltip data-title="编辑" ng-click="prepareToUpdate(item)">
                                 <i class="fa fa-edit"></i>
+                            </a>
+                            <!-- 删除 -->
+                            <!--suppress HtmlUnknownAnchorTarget -->
+                            <a href="javascript:" class="btn btn-xs red-thunderbird"
+                               bs-tooltip data-title="删除" ng-click="remove(item)">
+                                <i class="fa fa-ban"></i>
                             </a>
                         </td>
                     </tr>
