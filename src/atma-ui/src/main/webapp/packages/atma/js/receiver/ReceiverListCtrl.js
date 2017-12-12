@@ -69,4 +69,17 @@ angular.module('WebApp').controller('ReceiverListCtrl', ['$rootScope', '$scope',
         scope.clear();
     };
 
+    $scope.remove = function(item) {
+        $ajaxCall.post({
+            data: {
+                controller: "RecieverController",
+                method: "remove",
+                id: item.id
+            },
+            success: function() {
+                $scope.load();
+            }
+        })
+    };
+
 }]);
