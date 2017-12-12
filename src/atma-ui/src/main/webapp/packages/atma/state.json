@@ -51,10 +51,10 @@
             "pageSubTitle": "展示已经预警的信息"
         },
         "templateUrl": "packages/atma/view/alarm/main.html",
-        "controller": "WhiteListCtrl",
+        "controller": "AlarmListCtrl",
         "files": [
-            "packages/atma/js/white/WhiteListCtrl.js",
-            "packages/atma/js/white/WhiteModifyCtrl.js"
+            "packages/atma/js/alarm/AlarmListCtrl.js",
+            "packages/atma/js/alarm/AlarmModifyCtrl.js"
         ]
     },
     "alarm-edit": {
@@ -65,10 +65,10 @@
             "pageSubTitle": "编辑已经预警的信息"
         },
         "templateUrl": "packages/atma/view/alarm/main.html",
-        "controller": "WhiteListCtrl",
+        "controller": "AlarmListCtrl",
         "files": [
-            "packages/atma/js/white/WhiteListCtrl.js",
-            "packages/atma/js/white/WhiteModifyCtrl.js"
+            "packages/atma/js/alarm/AlarmListCtrl.js",
+            "packages/atma/js/alarm/AlarmModifyCtrl.js"
         ]
     }
 }

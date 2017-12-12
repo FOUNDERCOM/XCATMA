@@ -42,6 +42,10 @@ public class Record implements Serializable {
     private String id;
 
     /** See the DB. */
+    @Column(name = "DJ_LVGUANDAIMA")
+    private String hotelId;
+
+    /** See the DB. */
     @Column(name = "DJ_XINGMING")
     private String name;
 
@@ -93,6 +97,24 @@ public class Record implements Serializable {
      */
     public void setId(String id) {
         this.id = id;
+    }
+
+    /**
+     * Get the hotelId.
+     *
+     * @return return the hotelId
+     */
+    public String getHotelId() {
+        return hotelId;
+    }
+
+    /**
+     * Set hotelId.
+     *
+     * @param hotelId the hotelId to set
+     */
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
     /**

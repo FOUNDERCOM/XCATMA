@@ -31,6 +31,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.founder.xc.atma.entity.Alarm;
+import com.founder.xc.atma.entity.Hotel;
+import com.founder.xc.atma.entity.Record;
 import com.founder.xc.atma.service.AlarmService;
 import com.lee.util.ObjectUtils;
 import com.lee.util.StringUtils;
@@ -84,15 +86,15 @@ public class AlarmServiceImpl implements AlarmService {
      */
     @SuppressWarnings("CheckStyle")
     private String makeQuery(Query query, Alarm condition) {
-        String hql = "where 1 = 1";
+        String hql = " where 1 = 1";
         if (!StringUtils.isEmpty(condition.getHotelName())) {
             hql += " and a.hotelName like :hotelName";
         }
-        if (!StringUtils.isEmpty(condition.getHotelStationId())) {
-            hql += " and a.hotelStationId = :hotelStationId";
+        if (!StringUtils.isEmpty(condition.getHotelStationName())) {
+            hql += " and a.hotelStationName like :hotelStationName";
         }
-        if (!StringUtils.isEmpty(condition.getHotelBureauId())) {
-            hql += " and a.hotelBureauid = :hotelBureauId";
+        if (!StringUtils.isEmpty(condition.getHotelBureauName())) {
+            hql += " and a.hotelBureauName like :hotelBureauName";
         }
         if (!StringUtils.isEmpty(condition.getRecName())) {
             hql += " and a.recName like :recName";
@@ -116,14 +118,14 @@ public class AlarmServiceImpl implements AlarmService {
         if (!StringUtils.isEmpty(condition.getHotelName())) {
             query.setParameter("hotelName", "%" + condition.getHotelName() + "%");
         }
-        if (!StringUtils.isEmpty(condition.getHotelStationId())) {
-            query.setParameter("hotelStationId", condition.getHotelStationId());
+        if (!StringUtils.isEmpty(condition.getHotelStationName())) {
+            query.setParameter("hotelStationName", "%" + condition.getHotelStationName() + "%");
         }
-        if (!StringUtils.isEmpty(condition.getHotelBureauId())) {
-            query.setParameter("hotelBureauid", condition.getHotelBureauId());
+        if (!StringUtils.isEmpty(condition.getHotelBureauName())) {
+            query.setParameter("hotelBureauName", "%" + condition.getHotelBureauName() + "%");
         }
         if (!StringUtils.isEmpty(condition.getRecName())) {
-            query.setParameter("recName", condition.getRecName());
+            query.setParameter("recName", "%" + condition.getRecName() + "%");
         }
         if (!StringUtils.isEmpty(condition.getRecSex())) {
             query.setParameter("recSex", condition.getRecSex());
@@ -132,7 +134,7 @@ public class AlarmServiceImpl implements AlarmService {
             query.setParameter("recNation", condition.getRecNation());
         }
         if (!StringUtils.isEmpty(condition.getRecCid())) {
-            query.setParameter("recCid", condition.getRecCid());
+            query.setParameter("recCid", condition.getRecCid() + "%");
         }
         if (!StringUtils.isEmpty(condition.getRecRoomNum())) {
             query.setParameter("recRoomNum", condition.getRecRoomNum());
@@ -141,10 +143,39 @@ public class AlarmServiceImpl implements AlarmService {
     }
 
     @Override
-    public void create(Alarm entity) {
+    public void create(String recordId) {
+
+        final Record rec = em.find(Record.class, recordId);
+        final Hotel hotel = em.find(Hotel.class, rec.getHotelId());
+
+        final Alarm alarm = new Alarm();
+        alarm.setHotelId(hotel.getId());
+        alarm.setHotelName(hotel.getName());
+        alarm.setHotelLegal(hotel.getLegal());
+        alarm.setHotelManager(hotel.getManager());
+        alarm.setHotelCharger(hotel.getCharger());
+        alarm.setHotelAdd(hotel.getAdd());
+        alarm.setHotelMainTel(hotel.getMainTel());
+        alarm.setHotelChargerTel(hotel.getChargerTel());
+        alarm.setHotelStationId(hotel.getStationId());
+        alarm.setHotelStationName(hotel.getStationName());
+        alarm.setHotelBureauId(hotel.getBureauId());
+        alarm.setHotelBureauName(hotel.getBureauName());
+
+        alarm.setRecId(rec.getId());
+        alarm.setRecName(rec.getName());
+        alarm.setRecSex(rec.getSex());
+        alarm.setRecNation(rec.getNation());
+        alarm.setRecBirthday(rec.getBirthday());
+        alarm.setRecCid(rec.getCid());
+        alarm.setRecAreaCode(rec.getAreaCode());
+        alarm.setRecCheckInTime(rec.getCheckInTime());
+        alarm.setRecCheckOutTime(rec.getCheckOutTime());
+        alarm.setRecRoomNum(rec.getRoomNum());
         // 1、保存
-        em.persist(entity);
+        em.persist(alarm);
         // 2、发送邮件
+        // TODO send mail
     }
 
     @Override

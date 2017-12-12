@@ -1,0 +1,179 @@
+<div class="modal fade" id="viewAlarmModalDiv" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false" ng-controller="AlarmModifyCtrl">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true"></a>
+                <h4 class="modal-title"><i class="icon-paper-clip"></i> {{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form">
+                    <form action="#" class="form-horizontal modifyStationForm">
+                        <div class="form-boy">
+                            <div class="row">
+
+                                <h4 class="col-md-12">人员信息</h4>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">编码</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recId']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">名称</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recName']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">身份证</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recCid']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">性别</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recSex']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">民族</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recNation']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">生日</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recBirthday']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="col-md-12">
+
+                                <h4 class="col-md-12">入住信息</h4>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">签入</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recCheckInTime']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">签出</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recCheckOutTime']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">房间号</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['recRoomNum']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="col-md-12">
+
+                                <h4 class="col-md-12">宾馆信息</h4>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">编码</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelId']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">名称</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelName']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">法人</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelLegal']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">经理</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelManager']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">安保</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelCharger']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-1">电话</label>
+                                        <div class="col-md-11">
+                                            <span class="form-control-static">主：{{entity['hotelMainTel']}}  副：{{entity['hotelChargerTel']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-1">地址</label>
+                                        <div class="col-md-11">
+                                            <span class="form-control-static">{{entity['hotelAdd']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="col-md-12">
+
+                                <h4 class="col-md-12">所属机关</h4>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">分局</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelBureauName']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">派出所</label>
+                                        <div class="col-md-9">
+                                            <span class="form-control-static">{{entity['hotelStationName']}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="col-md-12">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline dark" data-dismiss="modal" aria-hidden="true"> 关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

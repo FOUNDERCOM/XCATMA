@@ -4,17 +4,9 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label class="control-label col-md-3">旅店</label>
+                        <label class="control-label col-md-3">姓名</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="旅店名称" ng-model="condition.hotelName">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="control-label col-md-3">派出所</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" placeholder="派出所名称" ng-model="condition.HotelStationName">
+                            <input type="text" class="form-control" placeholder="姓名" ng-model="condition.recName">
                         </div>
                     </div>
                 </div>
@@ -23,6 +15,38 @@
                         <label class="control-label col-md-3">身份证</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" placeholder="身份证号" ng-model="condition.recCid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">旅店</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="旅店名称" ng-model="condition.hotelName">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">房间号</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="房间号" ng-model="condition.recRoomNum">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">分局</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="分局名称" ng-model="condition.hotelBureauName">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">派出所</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="派出所名称" ng-model="condition.hotelStationName">
                         </div>
                     </div>
                 </div>
@@ -49,10 +73,10 @@
                 <thead>
                     <tr>
                         <th class="text-center wid60px">#</th>
-                        <th class="text-center wid180px">旅店</th>
-                        <th class="text-center wid90px">时间</th>
+                        <th class="text-center wid120px">旅店</th>
+                        <th class="text-center wid120px">时间</th>
                         <th class="text-center wid90px">人员</th>
-                        <th class="text-center wid120px">最后一次操作</th>
+                        <th class="text-center wid120px">身份证</th>
                         <th class="text-center wid160px">操作</th>
                     </tr>
                 </thead>
@@ -60,33 +84,16 @@
                 <tbody>
                     <tr ng-repeat="item in list">
                         <td class="text-center">{{$index + 1}}</td>
-                        <td class="text-center">{{item['orgId']}}</td>
-                        <td class="text-center">{{item['name']}}</td>
-                        <td class="text-center">{{item['tel']}}</td>
+                        <td class="text-center">{{item['hotelName']}}</td>
+                        <td class="text-center">{{item['recCheckInTime']}}</td>
+                        <td class="text-center">{{item['recName']}}</td>
+                        <td class="text-center">{{item['recCid']}}</td>
                         <td class="text-center">
-                            <a href="javascript:" bs-popover data-original-title="{{item['lastUpdateUser']['name']}}<a href='javascript:' class='close'>&times;</a>"
-                               data-content="<b><i class='fa fa-newspaper-o'></i> 操作人ID:</b> {{item['lastUpdateUser']['id']}}<br/>
-                                            <b><i class='icon-user'></i> 操作人名称:</b> {{item['lastUpdateUser']['name']}}<br/>
-                                            <b><i class='icon-calendar'></i> 操作时间:</b> {{item['lastUpdateDate']}}<br/>
-                                            <b><i class='icon-screen-desktop'></i> 操作电脑:</b> {{item['lastUpdateIp']}}">
-                                {{item['lastUpdateUser']['name']}}
-                            </a>
-                        </td>
-                        <td class="text-center">
-                            <!-- 启用/禁用 -->
-                            <a href="javascript:" class="btn btn-xs red" bs-tooltip data-title="禁用"
-                               ng-if="item.isEnabled" ng-click="changeStatus(item, false)">
-                                <i class="fa fa-ban"></i>
-                            </a>
-                            <a href="javascript:" class="btn btn-xs green" bs-tooltip data-title="启用"
-                               ng-if="!item.isEnabled" ng-click="changeStatus(item, true)">
-                                <i class="fa fa-recycle"></i>
-                            </a>
                             <!-- 编辑 -->
                             <!--suppress HtmlUnknownAnchorTarget -->
-                            <a href="/#modifyStationModalDiv" data-toggle="modal" class="btn btn-xs blue"
-                               bs-tooltip data-title="编辑" ng-click="prepareToUpdate(item)">
-                                <i class="fa fa-edit"></i>
+                            <a href="/#viewAlarmModalDiv" data-toggle="modal" class="btn btn-xs red-thunderbird"
+                               bs-tooltip data-title="查看" ng-click="prepareToView(item)">
+                                <i class="fa fa-picture-o"></i>
                             </a>
                         </td>
                     </tr>

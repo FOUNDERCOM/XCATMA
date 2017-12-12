@@ -17,46 +17,36 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
-package com.founder.xc.atma.service;
+angular.module('WebApp').controller('AlarmListCtrl', ['$rootScope', '$scope', "$listService", "$ajaxCall", function ($rootScope, $scope, $listService, $ajaxCall) {
 
-import java.util.List;
+    $scope.modifyDivId = "viewAlarmModalDiv";
 
-import com.founder.xc.atma.entity.Alarm;
-import com.founder.xc.atma.entity.Record;
-
-/**
- * Description: 报警服务.<br>
- * Created by Jimmybly Lee on 2017/12/10.
- *
- * @author Jimmybly Lee
- */
-public interface AlarmService {
+    $scope.condition = {};
+    $listService.init($scope, {
+        "controller": "AlarmController",
+        "method": "query",
+        callback: function (success) {
+            $scope.list = success.data.result;
+        }
+    });
 
     /**
-     * Query.
-     * @param condition condition
-     * @param start start
-     * @param limit limit
-     * @return list
+     * 刷新数据
      */
-    List<Alarm> query(Alarm condition, Integer start, Integer limit);
+    $scope.load = function () {
+        $scope.pageRequest.getResponse();
+    };
+    $scope.load();
 
     /**
-     * Count.
-     * @param condition condition
-     * @return count
+     * 准备修改实体
      */
-    int count(Alarm condition);
+    $scope.prepareToView = function (item) {
+        var scope = $("#" + $scope.modifyDivId).scope();
+        scope.title = "查看预警信息";
+        scope.entity = item;
 
-    /**
-     * Create.
-     * @param recordId recordId
-     */
-    void create(String recordId);
+        scope.clear();
+    };
 
-    /**
-     * Update.
-     * @param entity entity
-     */
-    void update(Alarm entity);
-}
+}]);

@@ -17,46 +17,6 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
-package com.founder.xc.atma.service;
+angular.module('WebApp').controller('AlarmModifyCtrl', ['$scope', "$ajaxCall", function ($scope, $ajaxCall) {
 
-import java.util.List;
-
-import com.founder.xc.atma.entity.Alarm;
-import com.founder.xc.atma.entity.Record;
-
-/**
- * Description: 报警服务.<br>
- * Created by Jimmybly Lee on 2017/12/10.
- *
- * @author Jimmybly Lee
- */
-public interface AlarmService {
-
-    /**
-     * Query.
-     * @param condition condition
-     * @param start start
-     * @param limit limit
-     * @return list
-     */
-    List<Alarm> query(Alarm condition, Integer start, Integer limit);
-
-    /**
-     * Count.
-     * @param condition condition
-     * @return count
-     */
-    int count(Alarm condition);
-
-    /**
-     * Create.
-     * @param recordId recordId
-     */
-    void create(String recordId);
-
-    /**
-     * Update.
-     * @param entity entity
-     */
-    void update(Alarm entity);
-}
+}]);

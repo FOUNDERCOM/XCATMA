@@ -59,39 +59,39 @@ public class Alarm implements Serializable {
 
     /** See the DB. */
     @Column(name = "HOTEL_MANAGER")
-    private String HotelManager;
+    private String hotelManager;
 
     /** See the DB. */
     @Column(name = "HOTEL_CHARGER")
-    private String HotelCharger;
+    private String hotelCharger;
 
     /** See the DB. */
     @Column(name = "HOTEL_ADD")
-    private String HotelAdd;
+    private String hotelAdd;
 
     /** See the DB. */
     @Column(name = "HOTEL_MAIN_TEL")
-    private String HotelMainTel;
+    private String hotelMainTel;
 
     /** See the DB. */
     @Column(name = "HOTEL_CHARGER_TEL")
-    private String HotelChargerTel;
+    private String hotelChargerTel;
 
     /** See the DB. */
     @Column(name = "HOTEL_STATION_ID")
-    private String HotelStationId;
+    private String hotelStationId;
 
     /** See the DB. */
     @Column(name = "HOTEL_STATION_NAME")
-    private String HotelStationName;
+    private String hotelStationName;
 
     /** See the DB. */
     @Column(name = "HOTEL_BUREAU_ID")
-    private String HotelBureauId;
+    private String hotelBureauId;
 
     /** See the DB. */
     @Column(name = "HOTEL_BUREAU_NAME")
-    private String HotelBureauName;
+    private String hotelBureauName;
 
     /** Rec ID.*/
     @Column(name = "REC_ID")
@@ -211,7 +211,7 @@ public class Alarm implements Serializable {
      * @return return the HotelManager
      */
     public String getHotelManager() {
-        return HotelManager;
+        return hotelManager;
     }
 
     /**
@@ -220,7 +220,7 @@ public class Alarm implements Serializable {
      * @param HotelManager the HotelManager to set
      */
     public void setHotelManager(String HotelManager) {
-        this.HotelManager = HotelManager;
+        this.hotelManager = HotelManager;
     }
 
     /**
@@ -229,7 +229,7 @@ public class Alarm implements Serializable {
      * @return return the HotelCharger
      */
     public String getHotelCharger() {
-        return HotelCharger;
+        return hotelCharger;
     }
 
     /**
@@ -238,7 +238,7 @@ public class Alarm implements Serializable {
      * @param HotelCharger the HotelCharger to set
      */
     public void setHotelCharger(String HotelCharger) {
-        this.HotelCharger = HotelCharger;
+        this.hotelCharger = HotelCharger;
     }
 
     /**
@@ -247,7 +247,7 @@ public class Alarm implements Serializable {
      * @return return the HotelAdd
      */
     public String getHotelAdd() {
-        return HotelAdd;
+        return hotelAdd;
     }
 
     /**
@@ -256,7 +256,7 @@ public class Alarm implements Serializable {
      * @param HotelAdd the HotelAdd to set
      */
     public void setHotelAdd(String HotelAdd) {
-        this.HotelAdd = HotelAdd;
+        this.hotelAdd = HotelAdd;
     }
 
     /**
@@ -265,7 +265,7 @@ public class Alarm implements Serializable {
      * @return return the HotelMainTel
      */
     public String getHotelMainTel() {
-        return HotelMainTel;
+        return hotelMainTel;
     }
 
     /**
@@ -274,7 +274,7 @@ public class Alarm implements Serializable {
      * @param HotelMainTel the HotelMainTel to set
      */
     public void setHotelMainTel(String HotelMainTel) {
-        this.HotelMainTel = HotelMainTel;
+        this.hotelMainTel = HotelMainTel;
     }
 
     /**
@@ -283,7 +283,7 @@ public class Alarm implements Serializable {
      * @return return the HotelChargerTel
      */
     public String getHotelChargerTel() {
-        return HotelChargerTel;
+        return hotelChargerTel;
     }
 
     /**
@@ -292,7 +292,7 @@ public class Alarm implements Serializable {
      * @param HotelChargerTel the HotelChargerTel to set
      */
     public void setHotelChargerTel(String HotelChargerTel) {
-        this.HotelChargerTel = HotelChargerTel;
+        this.hotelChargerTel = HotelChargerTel;
     }
 
     /**
@@ -301,7 +301,7 @@ public class Alarm implements Serializable {
      * @return return the HotelStationId
      */
     public String getHotelStationId() {
-        return HotelStationId;
+        return hotelStationId;
     }
 
     /**
@@ -310,7 +310,7 @@ public class Alarm implements Serializable {
      * @param HotelStationId the HotelStationId to set
      */
     public void setHotelStationId(String HotelStationId) {
-        this.HotelStationId = HotelStationId;
+        this.hotelStationId = HotelStationId;
     }
 
     /**
@@ -319,7 +319,7 @@ public class Alarm implements Serializable {
      * @return return the HotelStationName
      */
     public String getHotelStationName() {
-        return HotelStationName;
+        return hotelStationName;
     }
 
     /**
@@ -328,7 +328,7 @@ public class Alarm implements Serializable {
      * @param HotelStationName the HotelStationName to set
      */
     public void setHotelStationName(String HotelStationName) {
-        this.HotelStationName = HotelStationName;
+        this.hotelStationName = HotelStationName;
     }
 
     /**
@@ -337,7 +337,7 @@ public class Alarm implements Serializable {
      * @return return the HotelBureauId
      */
     public String getHotelBureauId() {
-        return HotelBureauId;
+        return hotelBureauId;
     }
 
     /**
@@ -346,7 +346,7 @@ public class Alarm implements Serializable {
      * @param HotelBureauId the HotelBureauId to set
      */
     public void setHotelBureauId(String HotelBureauId) {
-        this.HotelBureauId = HotelBureauId;
+        this.hotelBureauId = HotelBureauId;
     }
 
     /**
@@ -355,7 +355,7 @@ public class Alarm implements Serializable {
      * @return return the HotelBureauName
      */
     public String getHotelBureauName() {
-        return HotelBureauName;
+        return hotelBureauName;
     }
 
     /**
@@ -364,7 +364,7 @@ public class Alarm implements Serializable {
      * @param HotelBureauName the HotelBureauName to set
      */
     public void setHotelBureauName(String HotelBureauName) {
-        this.HotelBureauName = HotelBureauName;
+        this.hotelBureauName = HotelBureauName;
     }
 
     /**
